@@ -1,29 +1,58 @@
 import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { Calculator, ArrowRight } from 'lucide-react';
 import CreditScoreGauge from '@/components/dashboard/CreditScoreGauge';
 import { mockUser } from '@/data/mockData';
 
 const RiskSimulator= () => {
+  const { data: session } = useSession();
   const [scenarios, setScenarios] = useState({
     missedPayments: 0,
     incomeChange: 0,
     spendingIncrease: 0
   });
 
-  const [simulatedScore, setSimulatedScore] = useState(mockUser.creditScore);
+  const [simulatedScore, setSimulatedScore] = useState<number>(mockUser.creditScore);
+  const [loadingSim, setLoadingSim] = useState(false);
 
-  const runSimulation = () => {
-    let newScore = mockUser.creditScore;
-    
-    // Simulate score impact based on scenarios
-    newScore -= scenarios.missedPayments * 25; // -25 points per missed payment
-    newScore += (scenarios.incomeChange / 1000) * 2; // +2 points per 1k income increase
-    newScore -= (scenarios.spendingIncrease / 100) * 10; // -10 points per 10% spending increase
-    
-    // Keep score within bounds
-    newScore = Math.max(300, Math.min(850, newScore));
-    
-    setSimulatedScore(Math.round(newScore));
+  const runSimulation = async () => {
+    setLoadingSim(true);
+    try {
+      const payload = {
+        userEmail: session?.user?.email,
+        simulation: {
+          missed_payments: scenarios.missedPayments,
+          income_change: scenarios.incomeChange,
+          spending_increase: scenarios.spendingIncrease,
+        }
+      };
+
+      const res = await fetch('/api/python/simulate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        console.warn('Simulation API failed', res.status);
+        // fallback to local heuristic
+        // apply simple heuristic as before
+        let newScore = mockUser.creditScore;
+        newScore -= scenarios.missedPayments * 25;
+        newScore += (scenarios.incomeChange / 1000) * 2;
+        newScore -= (scenarios.spendingIncrease / 100) * 10;
+        newScore = Math.max(300, Math.min(850, newScore));
+        setSimulatedScore(Math.round(newScore));
+      } else {
+        const data = await res.json();
+        const simScore = data?.simulatedScore ?? data?.score ?? null;
+        if (simScore !== null) setSimulatedScore(Number(simScore));
+      }
+    } catch (err) {
+      console.error('Simulation error', err);
+    } finally {
+      setLoadingSim(false);
+    }
   };
 
   const getScoreImpact = () => {
@@ -50,7 +79,7 @@ const RiskSimulator= () => {
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
               <Calculator className="h-5 w-5 mr-2" />
-              "What-If" Scenario Builder
+              What-If Scenario Builder
             </h2>
             
             <div className="space-y-6">

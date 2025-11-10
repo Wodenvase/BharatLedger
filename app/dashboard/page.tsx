@@ -61,6 +61,26 @@ export default function DashboardPage() {
 
       const data = await response.json();
       setDashboardData(data);
+
+      // After loading dashboard data, fetch live credit score from ML service
+      try {
+        if (session?.user?.email) {
+          const scoreRes = await fetch('/api/python/get_score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userEmail: session.user.email }),
+          });
+          if (scoreRes.ok) {
+            const scoreJson = await scoreRes.json();
+            const score = scoreJson.score ?? null;
+            setDashboardData((prev) => prev ? { ...prev, creditScore: score ?? prev.creditScore } : prev);
+          } else {
+            console.warn('Failed to fetch live score', scoreRes.status);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching live score:', err);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
       console.error('Error fetching dashboard data:', err);

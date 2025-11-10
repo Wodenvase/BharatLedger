@@ -63,8 +63,9 @@ export async function POST(request: Request) {
 
     console.log('[Upload API] File received:', file.name, 'Size:', file.size);
 
-    // Create upload directory if it doesn't exist
-    const uploadDir = join(process.cwd(), 'uploads', user.id);
+    // Save to a temporary folder on the server (works reliably in local dev and many hosts)
+    // Use system temp directory (/tmp on Unix-like systems)
+    const uploadDir = join('/tmp', user.id);
     if (!existsSync(uploadDir)) {
       await mkdir(uploadDir, { recursive: true });
     }
@@ -92,6 +93,21 @@ export async function POST(request: Request) {
     });
 
     console.log('[Upload API] Account updated successfully');
+
+    // Trigger Python processing function (serverless) to process & ingest the CSV
+    try {
+      const procRes = await fetch('/api/python/process_csv', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: filePath, userId: user.id, accountId }),
+      });
+      // attempt to read response for logging
+      let procJson = null;
+      try { procJson = await procRes.json(); } catch (e) { /* ignore */ }
+      console.log('[Upload API] Triggered CSV processor', procRes.status, procJson);
+    } catch (err) {
+      console.warn('[Upload API] Failed to trigger CSV processor', err);
+    }
 
     return NextResponse.json({
       success: true,
