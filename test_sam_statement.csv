@@ -1,0 +1,41 @@
+Date,Description,Amount,Type,Category
+2025-10-19,Salary Credit - Sam,159700.0,income,Salary
+2025-10-20,Monthly Rent,35200.0,expense,Housing
+2025-10-21,Groceries - Costco,4200.0,expense,Groceries
+2025-10-21,Utilities Payment,1800.0,expense,Utilities
+2025-10-22,Transportation - Uber,450.0,expense,Transportation
+2025-10-23,Restaurant - Lunch,680.0,expense,Food & Dining
+2025-10-25,Shopping - Walmart,2100.0,expense,Shopping
+2025-10-28,Entertainment - Movie,350.0,expense,Entertainment
+2025-11-19,Salary Credit - Sam,159700.0,income,Salary
+2025-11-20,Monthly Rent,35200.0,expense,Housing
+2025-11-21,Groceries - Whole Foods,3800.0,expense,Groceries
+2025-11-22,Utilities Payment,1850.0,expense,Utilities
+2025-11-23,Transportation - Lyft,520.0,expense,Transportation
+2025-11-24,Restaurant - Dinner,920.0,expense,Food & Dining
+2025-11-25,Shopping - Target,1850.0,expense,Shopping
+2025-11-28,Entertainment - Concert,450.0,expense,Entertainment
+2025-12-19,Salary Credit - Sam,159700.0,income,Salary
+2025-12-20,Monthly Rent,35200.0,expense,Housing
+2025-12-21,Groceries - Safeway,4100.0,expense,Groceries
+2025-12-22,Utilities Payment,1950.0,expense,Utilities
+2025-12-23,Transportation - Gas,380.0,expense,Transportation
+2025-12-24,Restaurant - Cafe,520.0,expense,Food & Dining
+2025-12-25,Shopping - Holiday,2500.0,expense,Shopping
+2025-12-27,Entertainment - Games,280.0,expense,Entertainment
+2026-01-19,Salary Credit - Sam,159700.0,income,Salary
+2026-01-20,Monthly Rent,35200.0,expense,Housing
+2026-01-21,Groceries - Trader Joe,3900.0,expense,Groceries
+2026-01-22,Utilities Payment,1800.0,expense,Utilities
+2026-01-23,Transportation - Parking,200.0,expense,Transportation
+2026-01-24,Restaurant - Brunch,650.0,expense,Food & Dining
+2026-01-25,Shopping - Clothes,1980.0,expense,Shopping
+2026-01-28,Entertainment - Streaming,15.0,expense,Entertainment
+2026-02-19,Salary Credit - Sam,159700.0,income,Salary
+2026-02-20,Monthly Rent,35200.0,expense,Housing
+2026-02-21,Groceries - Costco,4300.0,expense,Groceries
+2026-02-22,Utilities Payment,1850.0,expense,Utilities
+2026-02-23,Transportation - Taxi,380.0,expense,Transportation
+2026-02-24,Restaurant - Dinner,750.0,expense,Food & Dining
+2026-02-25,Shopping - Books,920.0,expense,Shopping
+2026-02-28,Entertainment - Gym,50.0,expense,Entertainment

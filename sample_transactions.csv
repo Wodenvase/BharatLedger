@@ -1,0 +1,11 @@
+date,description,amount,type,category
+2025-01-15,Salary Credit,45000,income,Income
+2025-01-14,Coffee Shop,250,debit,Food & Dining
+2025-01-14,Uber Ride,350,debit,Transportation
+2025-01-13,Electricity Bill,1200,debit,Utilities
+2025-01-12,Online Shopping,2500,debit,Shopping
+2025-01-11,Doctor Consultation,500,debit,Healthcare
+2025-01-10,Movie Tickets,600,debit,Entertainment
+2025-01-09,Loan Payment,5000,debit,Loan Repayment
+2025-01-08,Grocery Store,1800,debit,Food & Dining
+2025-01-07,Freelance Project,8000,credit,Income

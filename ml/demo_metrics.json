@@ -1,0 +1,113 @@
+{
+  "trend": [
+    {
+      "month": "2020-01",
+      "income": 1463589.0,
+      "expense": 146541.80000000002
+    },
+    {
+      "month": "2020-02",
+      "income": 1463589.0,
+      "expense": 145141.69999999998
+    },
+    {
+      "month": "2020-03",
+      "income": 1463589.0,
+      "expense": 144468.40000000002
+    },
+    {
+      "month": "2020-04",
+      "income": 1463589.0,
+      "expense": 142406.8
+    },
+    {
+      "month": "2020-05",
+      "income": 1463589.0,
+      "expense": 139269.1
+    },
+    {
+      "month": "2020-06",
+      "income": 1463589.0,
+      "expense": 138813.2
+    },
+    {
+      "month": "2020-07",
+      "income": 1463589.0,
+      "expense": 138007.6
+    },
+    {
+      "month": "2020-08",
+      "income": 1463589.0,
+      "expense": 137119.40000000002
+    },
+    {
+      "month": "2020-09",
+      "income": 1463589.0,
+      "expense": 135059.90000000002
+    },
+    {
+      "month": "2020-10",
+      "income": 1463589.0,
+      "expense": 132930.90000000002
+    },
+    {
+      "month": "2020-11",
+      "income": 1463589.0,
+      "expense": 130835.50000000001
+    },
+    {
+      "month": "2020-12",
+      "income": 1463589.0,
+      "expense": 131704.0
+    }
+  ],
+  "categories": [
+    {
+      "category": "Financial",
+      "total": 16622983.0,
+      "percentage": 100.0
+    }
+  ],
+  "breakdown": [
+    {
+      "description": "Customer 106",
+      "total": 202941.0
+    },
+    {
+      "description": "Customer 287",
+      "total": 180978.0
+    },
+    {
+      "description": "Customer 50",
+      "total": 166668.0
+    },
+    {
+      "description": "Customer 222",
+      "total": 159038.0
+    },
+    {
+      "description": "Customer 226",
+      "total": 158554.0
+    },
+    {
+      "description": "Customer 242",
+      "total": 150328.0
+    },
+    {
+      "description": "Customer 161",
+      "total": 147697.0
+    },
+    {
+      "description": "Customer 178",
+      "total": 142094.0
+    },
+    {
+      "description": "Customer 67",
+      "total": 141783.0
+    },
+    {
+      "description": "Customer 269",
+      "total": 141236.0
+    }
+  ]
+}
