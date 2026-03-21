@@ -6,7 +6,6 @@ import Features from '../components/landing/Features';
 import TechnologyStack from '../components/landing/TechnologyStack';
 import TrustSecurity from '../components/landing/TrustSecurity';
 import TargetAudience from '../components/landing/TargetAudience';
-import TeamSection from '../components/landing/TeamSection';
 import Footer from '../components/landing/Footer';
 
 const Landing: React.FC = () => {
@@ -19,7 +18,6 @@ const Landing: React.FC = () => {
       <TechnologyStack />
       <TrustSecurity />
       <TargetAudience />
-      <TeamSection />
       <Footer />
     </div>
   );

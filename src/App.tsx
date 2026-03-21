@@ -7,7 +7,6 @@ import Transactions from './pages/dashboard/Transactions';
 import FinancialHealth from './pages/dashboard/FinancialHealth';
 import RiskSimulator from './pages/dashboard/RiskSimulator';
 import Reports from './pages/dashboard/Reports';
-import Profile from './pages/dashboard/Profile';
 import { TransactionProvider } from './context/TransactionContext';
 
 function App() {
@@ -53,13 +52,9 @@ function App() {
               path="/dashboard/simulator" 
               element={isAuthenticated ? <RiskSimulator /> : <Navigate to="/dashboard" />} 
             />
-            <Route 
-              path="/dashboard/reports" 
-              element={isAuthenticated ? <Reports /> : <Navigate to="/dashboard" />} 
-            />
-            <Route 
-              path="/dashboard/profile" 
-              element={isAuthenticated ? <Profile /> : <Navigate to="/dashboard" />} 
+            <Route
+              path="/dashboard/reports"
+              element={isAuthenticated ? <Reports /> : <Navigate to="/dashboard" />}
             />
           </Routes>
         </div>
@@ -83,7 +78,7 @@ const DashboardLogin: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
             <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
             <input
               type="email"
-              defaultValue="priya.sharma@email.com"
+              defaultValue="default@email.com"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>

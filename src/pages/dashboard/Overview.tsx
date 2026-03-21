@@ -4,7 +4,6 @@ import CreditScoreGauge from '../../components/dashboard/CreditScoreGauge';
 import MetricCard from '../../components/dashboard/MetricCard';
 import AlertCard from '../../components/dashboard/AlertCard';
 import { Transaction, FinancialMetrics, Alert } from '../../types';
-import { mockUser } from '../../data/mockData';
 import { formatCurrency, formatPercentage, getRiskColor } from '../../utils/formatters';
 import { calculateCreditScore } from '../../services/creditScoreCalculator';
 import { detectAndGetCreditProfile } from '../../services/creditScoreMapping';
@@ -89,7 +88,7 @@ const Overview: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Welcome back, {mockUser.name.split(' ')[0]}!</h1>
+        <h1 className="text-3xl font-bold text-gray-900">Welcome back</h1>
         <p className="text-gray-600 mt-2">Here's your financial overview for today. Powered by LightGBM credit analysis.</p>
       </div>
 

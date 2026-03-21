@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BarChart3, User, LogOut, Home } from 'lucide-react';
+import { BarChart3, LogOut, Home } from 'lucide-react';
 
 interface NavigationProps {
   isAuthenticated: boolean;
@@ -40,7 +40,6 @@ const Navigation: React.FC<NavigationProps> = ({ isAuthenticated, onLogout }) =>
     { path: '/dashboard/health', icon: BarChart3, label: 'Financial Health' },
     { path: '/dashboard/simulator', icon: BarChart3, label: 'Risk Simulator' },
     { path: '/dashboard/reports', icon: BarChart3, label: 'Reports' },
-    { path: '/dashboard/profile', icon: User, label: 'Profile' },
   ];
 
   return (
