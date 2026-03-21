@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  password     String        // We will hash this
+  name         String?
+  createdAt    DateTime      @default(now())
+  transactions Transaction[]
+  accounts     Account[]
+}
+
+model Transaction {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        DateTime
+  description String
+  amount      Float
+  type        String   // "income" or "expense"
+  category    String
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([date])
+}
+
+model Account {
+  id           String    @id @default(cuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sourceName   String    // e.g. "Bank of America", "Chase Credit Card"
+  connected    Boolean   @default(true)
+  lastUploaded DateTime?
+  filePath     String?   // Path to uploaded CSV file
+  createdAt    DateTime  @default(now())
+
+  @@index([userId])
+}
